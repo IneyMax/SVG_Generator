@@ -1,6 +1,6 @@
-﻿#include "Geometry_Figure.h"
-
+﻿#include "Point.h"
 #include <iostream>
+
 
 void Point::print_coord() const
 {
@@ -31,6 +31,26 @@ std::pair<int, int> Point::get_point_coord()
     return std::make_pair(coord_x_, coord_y_);
 }
 
+int Point::get_x_coord()
+{
+    return coord_x_;
+}
+
+int Point::get_y_coord()
+{
+    return coord_y_;
+}
+
+std::string Point::get_string_x_coord()
+{
+    return std::to_string(coord_x_);
+}
+
+std::string Point::get_string_y_coord()
+{
+    return std::to_string(coord_y_);
+}
+
 Point Point::get_start_point() const
 {
     return Point(coord_x_, coord_y_);
@@ -48,7 +68,10 @@ Point Point::operator-(const Point &second_point) const
 
 bool Point::operator < (const Point &second_point) const
 {
-    // TODO Операция сравнения для точек
+    if (coord_x_ * coord_y_ < second_point.coord_x_ * second_point.coord_y_)
+    {
+        return true;
+    }
     return false;
 }
 
@@ -59,47 +82,4 @@ bool Point::operator == (const Point &second_point) const
         return true;
     }
     return false;
-}
-
-void Line::print_line()
-{
-    std::cout << "Start line: ";
-    start_line_.print_coord();
-    std::cout << " End line: ";
-    end_point_.print_coord();
-    std::cout << std::endl;
-}
-
-std::pair<Point, Point> Line::get_line()
-{
-    return std::make_pair(start_line_, end_point_);
-}
-
-void Line::set_start_line(int x, int y)
-{
-    start_line_.set_coord(x, y);
-}
-
-void Line::set_start_line(const Point & ref_to_point)
-{
-    start_line_ = ref_to_point;
-}
-
-void Line::set_end_line(int x, int y)
-{
-    end_point_.set_coord(x, y);
-}
-
-void Line::set_end_line(const Point & ref_to_point)
-{
-    end_point_ = ref_to_point;
-}
-
-void Rect::print_rect()
-{
-    lu_point_.print_coord();
-    ld_point_.print_coord();
-    ru_point_.print_coord();
-    rd_point_.print_coord();
-    std::cout << std::endl;
 }
