@@ -1,33 +1,9 @@
 ﻿#include "Line.h"
 
-Line& Line::set_start_point(Point start_point)
-{
-    Figure::set_start_point(start_point);
-    return *this;
-}
-
-Line& Line::set_line_width(int width)
-{
-    Figure::set_line_width(width);
-    return *this;
-}
-
-Line& Line::set_color_line(RGB color)
-{
-    Figure::set_color_line(color);
-    return *this;
-}
-
-Line& Line::set_color_line(std::string color_line)
-{
-    Figure::set_color_line(color_line);
-    return *this;
-}
-
-Line& Line::set_end_point(Point end_point)
+Line* Line::set_end_point(Point end_point)
 {
     end_point_ = end_point;
-    return *this;
+    return this;
 }
 
 std::string Line::create_string()

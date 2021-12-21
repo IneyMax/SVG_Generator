@@ -16,6 +16,7 @@ class GeneratorSVG
     void start_generation();
     void end_generation();
     
+
 public:
     GeneratorSVG():
     new_file_(file_name_)
@@ -23,10 +24,9 @@ public:
         start_generation();
     }
     
-    void add(Figure& figure);
+    template <class T>
+    void add(Figure<T>& figure);
+    void generate();
 
-    ~GeneratorSVG()
-    {
-        end_generation();
-    }
+    ~GeneratorSVG() {}
 };

@@ -1,41 +1,5 @@
 ﻿#include "Circle.h"
 
-Circle& Circle::set_start_point(Point start_point)
-{
-    Figure::set_start_point(start_point);
-    return *this;
-}
-
-Circle& Circle::set_line_width(int width)
-{
-    Figure::set_line_width(width);
-    return *this;
-}
-
-Circle& Circle::set_color_fill(RGB color)
-{
-    Figure::set_color_fill(color);
-    return *this;
-}
-
-Circle& Circle::set_color_line(RGB color)
-{
-    Figure::set_color_line(color);
-    return *this;
-}
-
-Circle& Circle::set_color_fill(std::string color_fill)
-{
-    Figure::set_color_fill(color_fill);
-    return *this;
-}
-
-Circle& Circle::set_color_line(std::string color_line)
-{
-    Figure::set_color_line(color_line);
-    return *this;
-}
-
 Circle& Circle::set_radius(int radius)
 {
     radius_ = radius;

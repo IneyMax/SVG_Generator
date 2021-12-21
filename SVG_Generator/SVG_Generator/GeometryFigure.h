@@ -3,6 +3,7 @@
 #include "Color.h"
 #include "Point.h"
 
+template <class T>
 class Figure
 {
 protected:
@@ -18,18 +19,41 @@ protected:
     
 public:
     Figure(){}
-
-    // TODO Вопрос к преподавателю: как можно реализовать цепочку вызовов для дочерних объектов?
-    virtual Figure& set_start_point(Point start_point);
-    virtual Figure& set_line_width(int width);
-    virtual Figure& set_color_fill(RGB color);
-    virtual Figure& set_color_line(RGB color);
-    virtual Figure& set_color_fill(std::string color_fill);
-    virtual Figure& set_color_line(std::string color_line);
-
+    
     virtual std::string create_string() = 0;
     
     virtual ~Figure(){}
+    T& set_start_point(Point start_point);
+    T& set_line_width(int width);
+    T* set_color_fill(Color color);
+    T& set_color_line(Color color);
 };
 
 
+template <class T>
+T& Figure<T>::set_start_point(Point start_point)
+{
+    start_point_ = start_point;
+    return *this;
+}
+
+template <class T>
+T& Figure<T>::set_line_width(int width)
+{
+    line_width_ = width;
+    return *this;
+}
+
+template <class T>
+T* Figure<T>::set_color_fill(Color color)
+{
+    color_fill_ = Color(color);
+    return this;
+}
+
+template <class T>
+T& Figure<T>::set_color_line(Color color)
+{
+    color_line_ = Color(color);
+    return *this;
+}

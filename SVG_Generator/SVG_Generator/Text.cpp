@@ -1,40 +1,5 @@
 ﻿#include "Text.h"
 
-Text& Text::set_start_point(Point start_point)
-{
-    Figure::set_start_point(start_point);
-    return *this;
-}
-
-Text& Text::set_line_width(int width)
-{
-    Figure::set_line_width(width);
-    return *this;
-}
-
-Text& Text::set_color_fill(RGB color)
-{
-    Figure::set_color_fill(color);
-    return *this;
-}
-
-Text& Text::set_color_line(RGB color)
-{
-    Figure::set_color_line(color);
-    return *this;
-}
-
-Text& Text::set_color_fill(std::string color_fill)
-{
-    Figure::set_color_fill(color_fill);
-    return *this;
-}
-
-Text& Text::set_color_line(std::string color_line)
-{
-    Figure::set_color_line(color_line);
-    return *this;
-}
 
 Text& Text::set_offset(int offset_x, int offset_y)
 {

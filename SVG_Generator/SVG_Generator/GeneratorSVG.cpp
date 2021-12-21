@@ -18,8 +18,14 @@ void GeneratorSVG::end_generation()
     new_file_.close();
 }
 
-void GeneratorSVG::add(Figure& figure)
+template <class T>
+void GeneratorSVG::add(Figure<T> & figure)
 {
     new_file_ << figure.create_string();
     new_file_ << "\n";
+}
+
+void GeneratorSVG::generate()
+{
+    end_generation();
 }
